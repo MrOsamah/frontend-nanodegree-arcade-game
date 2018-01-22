@@ -9,7 +9,7 @@
  * drawn but that is not the case. What's really happening is the entire "scene"
  * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
+ * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
 
@@ -24,7 +24,7 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 505;
+    canvas.width = 707;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
@@ -107,17 +107,17 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/grass-block.png',   // Row top of grass
+                'images/stone-block.png',   // Row 1 of 4 of stone
+                'images/stone-block.png',   // Row 2 of 4 of stone
+                'images/stone-block.png',   // Row 3 of 4 of stone
+                'images/stone-block.png',   // Row 4 of 4 of stone
+                'images/grass-block.png'    // Row bottom of grass
             ],
             numRows = 6,
-            numCols = 5,
+            numCols = 7,
             row, col;
-        
+
         // Before drawing, clear existing canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
@@ -137,6 +137,7 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
+        ctx.draw
 
         renderEntities();
     }
@@ -154,6 +155,7 @@ var Engine = (function(global) {
         });
 
         player.render();
+        key.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -164,16 +166,45 @@ var Engine = (function(global) {
         // noop
     }
 
+    // Array of images of the collected allowedKeys
+    var keysCollectedImages = [
+      "images/0keys.png",
+      "images/1key.png",
+      "images/2keys.png",
+      "images/3keys.png",
+      "images/4keys.png",
+      "images/5keys.png",
+      "images/6keys.png"
+    ];
+
+    // Array of images of the player's lives
+    var livesImages = [
+      "images/0hp.png",
+      "images/1hp.png",
+      "images/2hp.png",
+      "images/3hp.png"
+    ];
+
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
         'images/stone-block.png',
-        'images/water-block.png',
         'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/enemy-ghost.png',
+        'images/char-princess-girl.png',
+        'images/0keys.png',
+        'images/1key.png',
+        'images/2keys.png',
+        'images/3keys.png',
+        'images/4keys.png',
+        'images/5keys.png',
+        'images/6keys.png',
+        'images/0hp.png',
+        'images/1hp.png',
+        'images/2hp.png',
+        'images/3hp.png',
     ]);
     Resources.onReady(init);
 
