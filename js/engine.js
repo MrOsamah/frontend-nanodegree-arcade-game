@@ -12,7 +12,6 @@
  * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -90,16 +89,16 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-      game.update();
-      if (game.gameState === "start"){
-        allEnemies.forEach(function(enemy) {
-            enemy.update(dt);
-        });
-        player.update();
-        key.update();
-        gate.update();
-        timer.update();
-      }
+        game.update();
+        if (game.gameState === "start") {
+            allEnemies.forEach(function(enemy) {
+                enemy.update(dt);
+            });
+            player.update();
+            key.update();
+            gate.update();
+            timer.update();
+        }
     }
 
     /* This function initially draws the "game level", it will then call
@@ -114,19 +113,19 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/grass-block.png',   // Row top of grass
-                'images/stone-block.png',   // Row 1 of 4 of stone
-                'images/stone-block.png',   // Row 2 of 4 of stone
-                'images/stone-block.png',   // Row 3 of 4 of stone
-                'images/stone-block.png',   // Row 4 of 4 of stone
-                'images/grass-block.png'    // Row bottom of grass
+                'images/grass-block.png', // Row top of grass
+                'images/stone-block.png', // Row 1 of 4 of stone
+                'images/stone-block.png', // Row 2 of 4 of stone
+                'images/stone-block.png', // Row 3 of 4 of stone
+                'images/stone-block.png', // Row 4 of 4 of stone
+                'images/grass-block.png' // Row bottom of grass
             ],
             numRows = 6,
             numCols = 7,
             row, col;
 
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -144,7 +143,7 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-        ctx.draw
+        ctx.draw;
 
         renderEntities();
     }
@@ -157,14 +156,14 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-          allEnemies.forEach(function(enemy) {
-              enemy.render();
-          });
+        allEnemies.forEach(function(enemy) {
+            enemy.render();
+        });
 
-          player.render();
-          key.render();
-          gate.render();
-          game.render();
+        player.render();
+        key.render();
+        gate.render();
+        game.render();
 
     }
 
@@ -180,6 +179,9 @@ var Engine = (function(global) {
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
      */
+
+     // ghost image src: http://www.pngall.com/ghost-png
+     // gate was drawn by me with Photoshop
     Resources.load([
         "images/bgMenu.png",
         "images/bgStart.png",
