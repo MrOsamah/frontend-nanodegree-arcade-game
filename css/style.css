@@ -1,11 +1,26 @@
 body {
     text-align: center;
+    background-color: #bbb;
 }
 
-#lives {
-  float: left;
+.states-bar {
+  margin-bottom: -40px;
 }
 
-#keys-collected {
-  float: right;
+#startButton {
+  position: absolute;
+  top: 30em;
+}
+
+#retryButton {
+  position:absolute;
+  top: 30em;
+  display: none;
+}
+
+#stats {
+  position: absolute;
+  top: 22em;
+  left: 35em;
+  display: none;
 }

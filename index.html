@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="states">
-      <img src="images/3hp.png" alt="" id="lives">
-      <img src="images/0keys.png" alt="keys collected" id="keys-collected">
+  <div class="container-fluid">
+    <div id="states" class="row states-bar">
+      <div class="col"><img src="images/3hp.png" alt="" id="lives" class="lives-images"></div>
+      <div class="col"><h1 id="timer"><span class="mins">00</span>:<span class="sec">00</span>.<span class="milsec">00</span></h1></div>
+      <div class="col"><img src="images/0keys.png" alt="keys collected" id="keys-collected" class="keys-images"></div>
     </div>
+
+    <div class="row">
+      <div class="col self-align-center menu">
+        <button type="button" class="btn btn-dark" id="startButton">Start</button>
+      </div>
+    </div>
+    <div class="row" id="stats">
+      <div class="col self-align-center">
+        <h1>Lives left: <span id="liveLeft">0</span></h1>
+      </div>
+      <div class="col self-align-center">
+        <h1>Time: <span id="timeOfPlay">0</span></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col self-align-center">
+        <button class="btn btn-dark" id="retryButton">Retry</button>
+      </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

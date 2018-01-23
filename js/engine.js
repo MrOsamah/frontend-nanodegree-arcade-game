@@ -90,10 +90,16 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
+      game.update();
+      if (game.gameState === "start"){
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
         player.update();
+        key.update();
+        gate.update();
+        timer.update();
+      }
     }
 
     /* This function initially draws the "game level", it will then call
@@ -102,6 +108,7 @@ var Engine = (function(global) {
      * they are flipbooks creating the illusion of animation but in reality
      * they are just drawing the entire screen over and over.
      */
+
     function render() {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
@@ -150,12 +157,15 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        allEnemies.forEach(function(enemy) {
-            enemy.render();
-        });
+          allEnemies.forEach(function(enemy) {
+              enemy.render();
+          });
 
-        player.render();
-        key.render();
+          player.render();
+          key.render();
+          gate.render();
+          game.render();
+
     }
 
     /* This function does nothing but it could have been a good place to
@@ -166,34 +176,22 @@ var Engine = (function(global) {
         // noop
     }
 
-    // Array of images of the collected allowedKeys
-    var keysCollectedImages = [
-      "images/0keys.png",
-      "images/1key.png",
-      "images/2keys.png",
-      "images/3keys.png",
-      "images/4keys.png",
-      "images/5keys.png",
-      "images/6keys.png"
-    ];
-
-    // Array of images of the player's lives
-    var livesImages = [
-      "images/0hp.png",
-      "images/1hp.png",
-      "images/2hp.png",
-      "images/3hp.png"
-    ];
-
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
+        "images/bgMenu.png",
+        "images/bgStart.png",
+        "images/bgOver.png",
+        "images/bgWin.png",
         'images/stone-block.png',
         'images/grass-block.png',
+        "images/gate-closed.png",
+        "images/gate-opened.png",
         'images/enemy-ghost.png',
         'images/char-princess-girl.png',
+        'images/Key.png',
         'images/0keys.png',
         'images/1key.png',
         'images/2keys.png',
@@ -204,7 +202,7 @@ var Engine = (function(global) {
         'images/0hp.png',
         'images/1hp.png',
         'images/2hp.png',
-        'images/3hp.png',
+        'images/3hp.png'
     ]);
     Resources.onReady(init);
 
