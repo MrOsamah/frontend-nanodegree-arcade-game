@@ -1,6 +1,22 @@
-frontend-nanodegree-arcade-game
-===============================
+# The Princess and the Ghosts (Clone of Frogger)
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+This is the final project of the Intermediate JavaScript chapter of Udacity's Front-End Web Developer Nanodegree.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+### How to Play
+
+  - First Click [here](https://mrosamah.github.io/frontend-nanodegree-arcade-game/).
+  - You will use keyboard's arrows to controll the character.
+  - The goal is to collect **6** keys and then go through the gate.
+  - The enemies will steal one key from you if you collide with them, also that will cost you one of your lives.
+  - If you win please capture the screen and mention me with the result at [@MrOsamah](https://twitter.com/MrOsamah), and I will **pin** the best and fastest result.
+
+
+### Screenshots
+
+![screenshot 1](https://mrosamah.github.io/frontend-nanodegree-arcade-game/screenshot1.png)
+
+![screenshot 1](https://mrosamah.github.io/frontend-nanodegree-arcade-game/screenshot2.png)
+
+### How to contribute
+
+If you find anything you can add or it will make the code better please don't hesitate open a PR with any updates and submit any issues.
